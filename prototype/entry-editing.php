@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Syngel - Web application for creating Hunspell Synonym thesaurus</title>
+    <title>Syngle - Web application for creating Hunspell Synonym thesaurus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web application for creating Hunspell Synonym thesaurus">
     <meta name="author" content="Fran Diéguez">
@@ -15,7 +15,7 @@
     <div class="navbar navbar-fixed-top navbar-inverse">
        <div class="navbar-inner">
          <div class="container">
-           <a class="brand" href="#">Syngel</a>
+           <a class="brand" href="#">Syngle</a>
            <div class="nav-collapse" id="main-menu">
             <ul class="nav" id="main-menu-left">
                 <li><a href="#">Synonym</a></li>
@@ -96,7 +96,7 @@
     </div>
     <footer class="container">
         <div class="pull-left">
-            <strong>Syngel - &copy; 2012</strong> <br>
+            <strong>Syngle - &copy; 2012</strong> <br>
             A product by <a href="http://www.frandieguez.com">Fran Diéguez</a>
         </div>
         <div class="pull-right right">
@@ -117,7 +117,7 @@
       <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
         {{#articles}}
         <li>
-        <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="Element {{title}}">
+        <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
             <span class="title">{{title}}</span>
             <div class="btn-toolbar pull-right">
               <div class="btn-group">

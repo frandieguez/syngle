@@ -71,7 +71,6 @@ function loadWords(search_string, new_page) {
         },
         dataType: 'json',
         success: function(data) {
-            console.log(data)
             var source = $("#entry_hb").html();
             var template = Handlebars.compile(source);
 
@@ -83,9 +82,18 @@ function loadWords(search_string, new_page) {
             }
             var content = template(vars);
             $('#server').html(content);
+
+            pickFirstInTheList();
         }
     });
     makeSelectable()
+}
+
+function pickFirstInTheList() {
+    $('.tab-pane:visible').find('li').each(function() {
+        $(this).removeClass('active');
+    })
+    $('.tab-pane:visible').find('li:first').addClass('active');
 }
 var selectable_container = $('#word-provider .tab-pane');
 
@@ -180,10 +188,7 @@ jQuery(document).ready(function($) {
     });
 
     jQuery(document).bind('keydown', 'l',function (e){
-        $('.tab-pane:visible').find('li').each(function() {
-            $(this).removeClass('active');
-        })
-        $('.tab-pane:visible').find('li:first').addClass('active');
+        pickFirstInTheList();
         return false;
     });
 
