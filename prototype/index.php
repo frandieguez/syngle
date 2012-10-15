@@ -7,7 +7,7 @@
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
 
-    <title>Syngle, create your own synonym thesaurus</title>
+    <title>Syngle, para crear o seu propio thesaurus de sinónimos</title>
     <meta name=description content="Free web application for creating your own hunspell-compatible thesaurus">
     <meta name=author content="Fran Diéguez">
 
@@ -28,10 +28,10 @@
           </a>
           <div class=nav-collapse>
             <ul class="nav pull-right">
-              <li class=active><a href="#home">Home</a></li>
-              <li><a href="#overzicht">Create your account</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a data-toggle=modal href="#contact">Contact</a></li>
+              <li class=active><a href="#home">Principal</a></li>
+              <li><a href="#overzicht">Crear unha conta</a></li>
+              <li><a href="#features">Funcionalidades</a></li>
+              <li><a data-toggle=modal href="#contact">Contacto</a></li>
 
             </ul>
           </div>
@@ -48,11 +48,11 @@
         <div class="text offset1" id=home>
           <div class=text-container>
             <h1>Syngle</h1>
-            <h2>Create your own synonym thesaurus</h2>
-            <p>An easy way to create synonym, antonym and related thesaurus compatible with Hunspell format.</p>
+            <h2>Crear o seu propio thesaurus de sinónimos</h2>
+            <p>Unha forma doada de crear sinónimos, antónimos e thesaurus de palabras relacionadas compatible co formato Hunspell.</p>
           </div>
           <div class=button-container>
-            <p><a class="btn btn-info btn-large" data-toggle=modal href="#contact">Create one for free &raquo;</a></p>
+            <p><a class="btn btn-info btn-large" data-toggle=modal href="#contact">Cree un de balde&raquo;</a></p>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
           <div class=row>
 
             <div class="span10 offset1" id=overzicht>
-              <h2>Features</h2>
+              <h2>Funcionalidades</h2>
               <p>
                 GroupLeader is ontstaan uit de wens van de Groningse introductieweek <a href="http://stichting.keiweek.nl/">stichting KEI</a>. Zij krijgen jaarlijks te maken met vele <strong>duizenden deelnemers</strong> van de introductieweek die geadministreerd en <strong>slim ingedeeld</strong> moeten worden bij vele <strong>honderden begeleiders</strong>.
               <p>
@@ -102,35 +102,35 @@ Door de enorme hoeveelheid deelnemers is het lastig dit met de hand te doen. Gro
           <div class=row id=features>
             <div class="span10 offset1">
             <hr>
-            <h2>Features</h2>
+            <h2>Funcionalidades</h2>
             <br>
             <div class=row>
               <div class=span3>
-                <h4><span><img src="assets/glyphicons_003_user.png" alt=Deelnemers></span>Your profile.</h4>
-                <p>Create your own dictionaries for different languages</p>
+                <h4><span><img src="assets/glyphicons_003_user.png" alt=Deelnemers></span>O seu perfil.</h4>
+                <p>Crear os seus propio dicionarios para diferentes idiomas</p>
               </div>
               <div class=span3>
-                <h4><span><img src="assets/glyphicons_043_group.png" alt=Groepen></span>Work with friends</h4>
-                  <p>You can invite your colleages to your syngle projects to get help and work together.</p>
+                <h4><span><img src="assets/glyphicons_043_group.png" alt=Groepen></span>Traballar con amigos</h4>
+                  <p>Pode convidar aos seus colegas aos seus proxectos syngle para obter axuda e traballar en equipo.</p>
               </div>
               <div class=span3>
                 <h4><span><img src="assets/glyphicons_023_cogwheels.png" alt=Instelbaar></span>Import</h4>
-                  <p>Import large lists of words by using a simple text file. Syngle will create entries for each of them and you will be ready for work.</p>
+                  <p>Importar grandes listas de palabras usando un ficheiro de texto simple. Syngle creará as entradas para cada unha delas e xa estará listo para comezar a traballar.</p>
               </div>
             </div>
             <div class=row style="margin-top: 9px;">
               <div class=span3>
-                <h4><span><img src="assets/glyphicons_083_random.png" alt=Indelen></span>Stablish relationships</h4>
-                  <p>Relate different words through synonyms, antonyms and general relationship by using own fast interface.</p>
+                <h4><span><img src="assets/glyphicons_083_random.png" alt=Indelen></span>Establecer relacións</h4>
+                  <p>Relacionar distintas palabras a través de sinónimos, antónimos e relacións usando a súa propia interface rápida.</p>
               </div>
 
               <div class=span3>
                 <h4><span><img src="assets/glyphicons_042_pie_chart.png" alt=Statistieken></span>Get statistics</h4>
-                  <p>Discover how are going your relationships. See how many relationships have your words in average among other information.</p>
+                  <p>Descubrir como van as súas relacións. Ver cantas relacións de media teñen as súas palabras entre outra información.</p>
               </div>
               <div class=span3>
-                <h4><span><img src="assets/glyphicons_134_inbox_in.png" alt=Exporteren></span>Export your thesauru</h4>
-                   When you are happy with your work export all the relationships in Hunspell compatible format.
+                <h4><span><img src="assets/glyphicons_134_inbox_in.png" alt=Exporteren></span>Exportar o seu thesaurus</h4>
+                   Cando estea satisfeitos co seu traballo exporte todas as relacións en formato compatíbel con Hunspell.
               </div>
             </div>
             <br>
@@ -151,7 +151,7 @@ Door de enorme hoeveelheid deelnemers is het lastig dit met de hand te doen. Gro
 
       <footer>
         <div class=span4>
-          <p>Syngle - A product by <a href="http://www.mabishu.com">Fran Diéguez</a></p>
+          <p>Syngle - Un produto de <a href="http://www.mabishu.com">Fran Diéguez</a></p>
         </div>
         <div class=span5>
         <div class="addthis_toolbox addthis_default_style ">

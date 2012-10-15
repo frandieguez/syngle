@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Syngel - Web application for creating Hunspell Synonym thesaurus</title>
+    <title>Syngle - Aplicativo Web para a creación de thesaurus de sinónimos en formato Hunspell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Web application for creating Hunspell Synonym thesaurus">
     <meta name="author" content="Fran Diéguez">
@@ -15,10 +15,10 @@
     <div class="navbar navbar-fixed-top navbar-inverse">
        <div class="navbar-inner">
          <div class="container">
-           <a class="brand" href="#">Syngel</a>
+           <a class="brand" href="#">Syngle</a>
            <div class="nav-collapse" id="main-menu">
             <ul class="nav" id="main-menu-left">
-                <li><a href="#">Synonym</a></li>
+                <li><a href="#">Sinónimos</a></li>
             </ul>
         </div>
          </div>
@@ -29,15 +29,15 @@
         <header class="jumbotron subhead" id="overview">
             <div class="row">
                 <div class="">
-                  <h1 class="span6">Playground</h1>
+                  <h1 class="span6">Área de traballo</h1>
                   <div class="pull-right right">
                     <div class="btn-toolbar">
                         <div class="btn-group">
                             <a href="#" class="btn" id="show-help"><i class="icon-info-sign"></i></a>
                         </div>
                         <div class="btn-group">
-                            <a href="#" class="btn" rel="tooltip" data-original-title="Go to the previous word"><i class="icon-chevron-left"></i></a>
-                            <a href="#" class="btn" rel="tooltip" data-original-title="Go to the next word"><i class="icon-chevron-right"></i></a>
+                            <a href="#" class="btn" rel="tooltip" data-original-title="Ir á palabra previa"><i class="icon-chevron-left"></i></a>
+                            <a href="#" class="btn" rel="tooltip" data-original-title="Ir á palabra seguinte"><i class="icon-chevron-right"></i></a>
                         </div>
                     </div>
                   </div>
@@ -53,8 +53,8 @@
       <div class="row-fluid">
         <div>
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a href="#server" data-toggle="tab">Server</a></li>
-                <li><a href="#search-form" data-toggle="tab" >Search</a></li>
+                <li class="active"><a href="#server" data-toggle="tab">Servidor</a></li>
+                <li><a href="#search-form" data-toggle="tab" >Buscar</a></li>
             </ul>
 
             <div class="tab-content">
@@ -63,14 +63,14 @@
                 </div>
                 <div class="tab-pane" id="search-form">
                     <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
-                      <li>Loading</li>
+                      <li>Cargando</li>
                     </ul>
                     <ul class="pager">
                       <li class="previous">
-                        <a href="#">&larr; Older</a>
+                        <a href="#">&larr; Anterior</a>
                       </li>
                       <li class="next">
-                        <a href="#">Newer &rarr;</a>
+                        <a href="#">Seguinte &rarr;</a>
                       </li>
                     </ul>
                 </div>
@@ -80,13 +80,13 @@
     </div>
     <footer class="container">
         <div class="pull-left">
-            <strong>Syngel - &copy; 2012</strong> <br>
-            A product by <a href="http://www.frandieguez.com">Fran Diéguez</a>
+            <strong>Syngle - &copy; 2012</strong> <br>
+            Un produto de <a href="http://www.frandieguez.com">Fran Diéguez</a>
         </div>
         <div class="pull-right right">
             <ul>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Axuda</a></li>
+                <li><a href="#">Termos e condicións</a></li>
             </ul>
         </div>
     </footer>
@@ -110,10 +110,10 @@
       </ul>
       <ul class="pager">
         <li class="previous">
-          <a href="#" data-page="{{prev_page}}">&larr; Older</a>
+          <a href="#" data-page="{{prev_page}}">&larr; Anterior</a>
         </li>
         <li class="next">
-          <a href="#" data-page="{{next_page}}">Newer &rarr;</a>
+          <a href="#" data-page="{{next_page}}">Seguinte &rarr;</a>
         </li>
       </ul>
     </script>
