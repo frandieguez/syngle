@@ -21,7 +21,8 @@ $offset = ($page - 1) * $items;
 if (!empty($search)) {
     $words = array_filter($words, function($item) {
         global $search;
-        return strpos($item, $search);
+        preg_match("/$search/", $item, $matches);
+        return count($matches) > 0;
     });
 }
 
