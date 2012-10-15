@@ -152,3 +152,13 @@ footer { font-size:smaller; border-top:1px solid #ddd; padding-top:10px; }
 footer ul { margin:0; }
 footer ul li { display:inline-block; }
 footer ul li a { padding:0 5px; }
+
+.loading {
+  background:url(../images/ajax-loader.gif) top left no-repeat;
+  margin:0 auto;
+  margin-top:10px;
+  min-height:20px;
+  padding-left:20px;
+  vertical-align:middle;
+  display:block;
+}

@@ -81,12 +81,12 @@
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane" id="server">
-                    Loading...
+                <div class="tab-pane active" id="server">
+                    <div class="loading">Loading...</div>
                 </div>
                 <div class="tab-pane" id="suggestions">
                     <!-- MySQL levenshtein distance: http://www.jisaacks.com/find-similar-products-in-mysql-using-levenshtein-distance -->
-                    Loading...
+                    <div class="loading">Loading...</div>
                 </div>
             </div>
 
@@ -145,13 +145,13 @@
             <h2>Help about this page</h2>
             <div class="close">X</div>
             <div class="span4">
-                <p>At this page you can stablish relationship between words to its
+                <p>At this page you can stablish relationships between words to its
                 root word.</p>
                 <h6>There are some available relationships:</h6>
                 <ul>
-                    <li>Synonym</li>
-                    <li>Antonym</li>
-                    <li>Related: for stablish other kind of relationship</li>
+                    <li><strong>Synonym</strong></li>
+                    <li><strong>Antonym</strong></li>
+                    <li><strong>Related:</strong> for stablishing other kind of relationship</li>
                 </ul>
                 <h6>Getting words</h6>
                 <p>You can get elements to relate from two sources:</p>
@@ -169,19 +169,20 @@
                 <p>For quicker usage of this page, you can assign words by using your keyboard.</p>
                 <dl>
                     <dt>a :</dt>
-                    <dd>Adds the active translation to the antonyms list</dd>
+                    <dd>Adds the active word to the antonyms list</dd>
                     <dt>s :</dt>
-                    <dd>Adds the active translation to the synonyms list</dd>
+                    <dd>Adds the active word to the synonyms list</dd>
                     <dt>r :</dt>
-                    <dd>Adds the active translation to the related list</dd>
+                    <dd>Adds the active word to the related list</dd>
 
+                    <br>
 
                     <dt>Shift + a :</dt>
-                    <dd>Adds the active translation to the antonyms list as a new concept</dd>
+                    <dd>Adds the active word to the antonyms list as a new concept</dd>
                     <dt>Shift + s :</dt>
-                    <dd>Adds the active translation to the synonyms list as a new concept</dd>
+                    <dd>Adds the active word to the synonyms list as a new concept</dd>
                     <dt>Shift + r :</dt>
-                    <dd>Adds the active translation to the related list in as a new concept</dd>
+                    <dd>Adds the active word to the related list in as a new concept</dd>
                 </dl>
             </div>
 
@@ -192,6 +193,8 @@
                     <dd>Shows this help dialog</dd>
                     <dt>/ :</dt>
                     <dd>Focus search input</dd>
+                    <dt>f :</dt>
+                    <dd>Focus first word in the listing</dd>
                 </dl>
             </div>
         </div>
@@ -206,7 +209,7 @@
     <script src="http://documentcloud.github.com/underscore/underscore.js"></script>
     <script src="http://backbonejs.org/backbone.js"></script>
     -->
-    <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
+    <script src="//cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/old.js"></script>
 </body>
