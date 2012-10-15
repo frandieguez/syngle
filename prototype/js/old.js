@@ -1,7 +1,7 @@
 function moveNext(container) {
     var active = container.find('.active');
     var next = active.next();
-    var siblings = container.children();
+    var siblings = active.parent().children();
 
     if (next.length > 0) {
         siblings.each(function(){ $(this).removeClass('active'); });
@@ -12,7 +12,7 @@ function moveNext(container) {
 function movePrevious(container) {
     var active = container.find('.active');
     var prev = active.prev();
-    var siblings = container.children();
+    var siblings = active.parent().children();
 
     if (prev.length > 0) {
         siblings.each(function(){ $(this).removeClass('active'); });
@@ -51,28 +51,64 @@ function moveWordTo(container, position) {
     };
 }
 
-jQuery(document).ready(function($) {
-
-    $('[rel=tooltip]').tooltip({'placement':'bottom'});
-
-    var selectable_container = $('[data-cursor-selectable]');
-    selectable_container.on('click', ' > *', function() {
-        selectable_container.children().each(function() {
+function makeSelectable() {
+    selectable_container.on('click', '[data-cursor-selectable] > *', function() {
+        $(this).siblings().each(function() {
             $(this).removeClass('active');
         })
         var target = $(this);
         target.toggleClass('active');
         return false;
     });
+}
+
+function loadWords(search_string, new_page) {
+    $.ajax({
+        url: 'ws.php',
+        data: {
+            page: new_page,
+            search: search_string
+        },
+        dataType: 'json',
+        success: function(data) {
+            console.log(data)
+            var source = $("#entry_hb").html();
+            var template = Handlebars.compile(source);
+
+            var vars = {
+                'next_page' : data.next_page,
+                'prev_page' : data.prev_page,
+                'articles'  : data.words,
+                'search'    : search_string
+            }
+            var content = template(vars);
+            $('#server').html(content);
+        }
+    });
+    makeSelectable()
+}
+var selectable_container = $('#word-provider .tab-pane');
+
+jQuery(document).ready(function($) {
+    $('.tab-content').on('submit', '#search-form', function(e, ui) {
+        e.preventDefault();
+        loadWords($('#search-word').val(), 1);
+    })
+    loadWords('', 1);
+
+    $('.tab-content').on('click', '.pager a', function() {
+        loadWords($(this).data('search-string'), $(this).data('page'));
+    });
+
+    $('[rel=tooltip]').tooltip({'placement':'bottom'});
 
     $( ".receiver ul li" ).sortable({
         connectWith: ".receiver ul li"
     });
-
     $( ".receiver ul" ).disableSelection();
 
     jQuery(document).bind('keydown', 'Shift+a',function (e){
-        moveWordTo(selectable_container, 'antonyms',true);
+        moveWordTo(selectable_container, 'antonyms', true);
         return false;
     });
     jQuery(document).bind('keydown', 'Shift+s',function (e){
@@ -96,11 +132,13 @@ jQuery(document).ready(function($) {
         return false;
     });
     jQuery(document).bind('keydown', 'left',function (e){
-        movePrevious(selectable_container);
+        var handler = selectable_container.find('.pager .previous a');
+        handler.trigger('click');
         return false;
     });
     jQuery(document).bind('keydown', 'right',function (e){
-        moveNext(selectable_container);
+        var handler = selectable_container.find('.pager .next a');
+        handler.trigger('click');
         return false;
     });
     jQuery(document).bind('keydown', 'up',function (e){
@@ -138,7 +176,6 @@ jQuery(document).ready(function($) {
                 relations[key].push($(this).data('id'));
             });
         });
-        console.log(relations);
         return false;
     });
 
@@ -157,5 +194,5 @@ jQuery(document).ready(function($) {
     $('.receiver').on('click', '.icon-trash', function(e, ui) {
         // log($(this));
         $(this).closest('a').remove();
-    })
+    });
 });

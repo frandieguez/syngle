@@ -74,72 +74,19 @@
                 </ul>
             </div>
         </div>
-        <div class="span6">
+        <div class="span6" id="word-provider">
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#server" data-toggle="tab">Server</a></li>
-                <li><a href="#search-form" data-toggle="tab">Search</a></li>
                 <li><a href="#suggestions" data-toggle="tab">Suggestions</a></li>
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane active" id="server">
-                    <ul class="nav nav-list bs-docs-sidebar" data-cursor-selectable></ul>
-                </div>
-                <div class="tab-pane" id="search-form">
-                    <div class="input-append">
-                      <input class="span10" id="search-word" size="16" type="text" placeholder="Search for a word…"><button class="btn" type="button">Search !</button>
-                    </div>
-                    <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
-                        <?php for ($i = 0; $i < 10 ; $i++): ?>
-                        <li>
-                            <a class="list-item clearfix" href="#elem-<?php echo $i; ?>" data-id="elo-<?php echo $i; ?>" data-title="Element <?php echo $i; ?>">
-                                <span class="title">Element <?php echo $i; ?></span>
-                                <div class="btn-toolbar pull-right">
-                                  <div class="btn-group">
-                                    <span class="btn add-to-synonym btn-mini" rel="tooltip" data-original-title="Add as Synonym">S</span>
-                                    <span class="btn add-to-antonym btn-mini" rel="tooltip" data-original-title="Add as Antonym">A</span>
-                                    <span class="btn add-to-related btn-mini" rel="tooltip" data-original-title="Add as Related">R</span>
-                                  </div>
-                                </div>
-                            </a>
-                        </li>
-                        <?php endfor ?>
-                    </ul>
-                    <ul class="pager">
-                      <li class="previous">
-                        <a href="#">&larr; Older</a>
-                      </li>
-                      <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                      </li>
-                    </ul>
+                <div class="tab-pane" id="server">
+                    Loading...
                 </div>
                 <div class="tab-pane" id="suggestions">
                     <!-- MySQL levenshtein distance: http://www.jisaacks.com/find-similar-products-in-mysql-using-levenshtein-distance -->
-                    <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
-                        <?php for ($i = 0; $i < 10 ; $i++): ?>
-                        <li>
-                            <a class="list-item clearfix" href="#elem-<?php echo $i; ?>" data-id="elo-<?php echo $i; ?>" data-title="Sugestion <?php echo $i; ?>">
-                                <span class="title">Suggestion <?php echo $i; ?></span>
-                                <div class="btn-toolbar pull-right">
-                                  <div class="btn-group">
-                                    <span class="btn add-to-synonym btn-mini">S</span>
-                                    <span class="btn add-to-antonym btn-mini">A</span>
-                                    <span class="btn add-to-related btn-mini">R</span>
-                                  </div>
-                                </div>
-                            </a>
-                        </li>
-                        <?php endfor ?>
-                    </ul>
-                    <ul class="pager">
-                      <li class="previous">
-                        <a href="#">&larr; Older</a>
-                      </li>
-                      <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                      </li>
-                    </ul>
+                    Loading...
                 </div>
             </div>
 
@@ -161,7 +108,14 @@
     </footer>
 
     <script id="entry_hb" type="text/x-handlebars-template">
-      {{#entry}}
+        <div class="input-append">
+          <form action="#" id="search-form">
+            <input class="span10" id="search-word" size="16" type="text" placeholder="Search for a word…" value="{{search}}">
+            <button id="search-submit" class="btn" type="submit">Search !</button>
+          </form>
+        </div>
+      <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
+        {{#articles}}
         <li>
         <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="Element {{title}}">
             <span class="title">{{title}}</span>
@@ -174,7 +128,16 @@
             </div>
         </a>
         </li>
-      {{/entry}}
+        {{/articles}}
+      </ul>
+      <ul class="pager">
+        <li class="previous">
+          <a href="#" data-page="{{prev_page}}" data-search-string="{{search}}">&larr; Older</a>
+        </li>
+        <li class="next">
+          <a href="#" data-page="{{next_page}}" data-search-string="{{search}}">Newer &rarr;</a>
+        </li>
+      </ul>
     </script>
 
     <div id="help">
@@ -239,9 +202,11 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
     <script src="//raw.github.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <!--
     <script src="http://documentcloud.github.com/underscore/underscore.js"></script>
     <script src="http://backbonejs.org/backbone.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js"></script>
+    -->
+    <script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/old.js"></script>
 </body>

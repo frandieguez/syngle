@@ -12,10 +12,21 @@ $words = explode(PHP_EOL, $words);
 
 $page   = array_key_exists('page', $_GET) ? $_GET['page'] : 1;
 $items  = array_key_exists('items', $_GET) ? $_GET['items'] : 10;
-$search = array_key_exists('search', $_GET) ? $_GET['search'] : 1;
+$search = array_key_exists('search', $_GET) ? $_GET['search'] : '';
+$wordsSubset = array();
 
 $offset = ($page - 1) * $items;
+
+
+if (!empty($search)) {
+    $words = array_filter($words, function($item) {
+        global $search;
+        return strpos($item, $search);
+    });
+}
+
 $result = array_slice($words, $offset, $items);
+
 
 $i = 0;
 foreach ($result as $value) {
@@ -23,9 +34,16 @@ foreach ($result as $value) {
     $value = iconv('ISO-8859-1', 'UTF-8', $value);
     $object->id = $offset+1+$i;
     $object->title = $value;
-    $finalResult[] = $object;
+    $wordsSubset[] = $object;
     $i++;
 }
+
+$finalResult = array(
+    'next_page' => $page+1,
+    'prev_page' => $page-1,
+    'words'     => $wordsSubset,
+    'search'    => $search,
+);
 
 header('Content-type: application/json');
 echo json_encode($finalResult);
