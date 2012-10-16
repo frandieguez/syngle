@@ -207,15 +207,15 @@
     </div>
 
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
-    <script src="//raw.github.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <script src="js/libraries/jquery.min.js"></script>
+    <script src="js/libraries/bootstrap.min.js"></script>
+    <script src="js/libraries/jquery.hotkeys.js"></script>
+    <script src="js/libraries/jquery-ui.min.js"></script>
     <!--
     <script src="http://documentcloud.github.com/underscore/underscore.js"></script>
     <script src="http://backbonejs.org/backbone.js"></script>
     -->
-    <script src="//cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
+    <script src="js/libraries/handlebars-1.0.rc.1.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/old.js"></script>
 </body>
