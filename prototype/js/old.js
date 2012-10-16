@@ -120,6 +120,28 @@ function loadSuggestions(search_string, new_page) {
     makeCursorSelectable()
 }
 
+function loadSidebar(search, new_page) {
+    $.ajax({
+        url: 'ws.php',
+        data: {
+            page: new_page,
+            items: 20
+        },
+        dataType: 'json',
+        success: function(data) {
+            var source = $("#sidebar_hb").html();
+            var template = Handlebars.compile(source);
+
+            var vars = {
+                'articles'  : data.words,
+                'next_page' : data.next_page,
+            }
+            var content = template(vars);
+            $('#sidebar .word-list .load_more').html(content);
+        }
+    });
+}
+
 function pickFirstInTheList() {
     $('.tab-pane:visible').find('li').each(function() {
         $(this).removeClass('active');
@@ -135,6 +157,7 @@ jQuery(document).ready(function($) {
     })
     loadWords('', 1);
     loadSuggestions('', 1);
+    loadSidebar('', 1)
 
     $('.tab-content').on('click', '.pager a', function() {
         loadWords($(this).data('search-string'), $(this).data('page'));

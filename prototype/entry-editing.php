@@ -11,101 +11,117 @@
 
     <link href="css/styles.css" rel="stylesheet"></style>
 </head>
-<body class="preview" data-spy="scroll" data-target=".subnav" data-offset="100">
+<body class="body-with-tool-bar" data-offset="100">
     <div class="navbar navbar-fixed-top navbar-inverse">
-       <div class="navbar-inner">
-         <div class="container">
-           <a class="brand" href="#">Syngle</a>
-           <div class="nav-collapse" id="main-menu">
-            <ul class="nav" id="main-menu-left">
-                <li><a href="#">Synonym</a></li>
-            </ul>
+        <div class="navbar-inner">
+            <a class="brand" href="#">Syngle</a>
+            <div class="nav-collapse" id="main-menu">
+                <ul class="nav" id="main-menu-left">
+                    <li><a href="#">Your dictionaries</a></li>
+                </ul>
+                <ul class="nav nav-secondary pull-right">
+                    <li>
+                        <a href="#" id="show-help"><i class="icon-info-sign icon-white"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Fran Diéguez
+                        <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Your profile</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Sign out</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-         </div>
-       </div>
     </div>
 
-    <div class="container" style="margin-top:80px;">
-        <header class="jumbotron subhead" id="overview">
-            <div class="row">
-                <div class="">
-                  <h1 class="span6">Entry</h1>
-                  <div class="pull-right right">
-                    <div class="btn-toolbar">
-                        <div class="btn-group">
-                            <a href="#" class="btn" id="show-help"><i class="icon-info-sign"></i></a>
-                        </div>
+    <div class="container-fluid">
+       <div class="row-fluid">
+            <div class="span2" id="sidebar">
+                <!--Sidebar content-->
+                <div class="word-list">
+                    <div class="load_more">
+                        <div class="loading">Loading</div>
+                    </div>
+                </div>
+            </div>
+            <div class="" id="word-content">
+                <!--Body content-->
+
+
+                <div class="word-header clearfix">
+                    <h4 class="muted">Original word:</h4>
+                    <h2 class="span5">Entry</h2>
+                    <div class="btn-toolbar pull-right right">
                         <div class="btn-group">
                             <a href="#" class="btn" rel="tooltip" data-original-title="Go to the previous word"><i class="icon-chevron-left"></i></a>
                             <a href="#" class="btn" rel="tooltip" data-original-title="Go to the next word"><i class="icon-chevron-right"></i></a>
                         </div>
                     </div>
-                  </div>
-                  <!-- <p class="lead">Navigate through lists with your cursors.</p> -->
                 </div>
-            </div>
-            <hr>
-        </header>
+
+                <div class="row-fluid clearfix">
+                    <div class="span6 receiver">
+                        <h4>Synonyms</h4>
+                        <div class="synonyms clearfix">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+
+                        <h4>Antonyms</h4>
+                        <div class="antonyms clearfix">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+
+                        <h4>Related</h4>
+                        <div class="related clearfix">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span6" id="word-provider">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active"><a href="#server" data-toggle="tab">Server</a></li>
+                            <li><a href="#suggestions" data-toggle="tab">Suggestions</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="server">
+                                <div class="loading">Loading...</div>
+                            </div>
+                            <div class="tab-pane" id="suggestions">
+                                <!-- MySQL levenshtein distance: http://www.jisaacks.com/find-similar-products-in-mysql-using-levenshtein-distance -->
+                                <div class="loading">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright  clearfix">
+                    <div class="pull-left">
+                        <strong>Syngle - &copy; 2012</strong> <br>
+                        A product by <a href="http://www.frandieguez.com">Fran Diéguez</a>
+                    </div>
+                    <div class="pull-right right">
+                        <ul>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Terms of service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- .word-content -->
+
+        </div>
     </div>
 
 
-    <div class="container">
-
-      <div class="row-fluid">
-        <div class="span6 receiver">
-            <h4>Synonyms</h4>
-            <div class="synonyms clearfix">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-
-            <h4>Antonyms</h4>
-            <div class="antonyms clearfix">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-
-            <h4>Related</h4>
-            <div class="related clearfix">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-        <div class="span6" id="word-provider">
-            <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a href="#server" data-toggle="tab">Server</a></li>
-                <li><a href="#suggestions" data-toggle="tab">Suggestions</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <div class="tab-pane active" id="server">
-                    <div class="loading">Loading...</div>
-                </div>
-                <div class="tab-pane" id="suggestions">
-                    <!-- MySQL levenshtein distance: http://www.jisaacks.com/find-similar-products-in-mysql-using-levenshtein-distance -->
-                    <div class="loading">Loading...</div>
-                </div>
-            </div>
-
-
-        </div>
-      </div>
-    </div>
-    <footer class="container">
-        <div class="pull-left">
-            <strong>Syngle - &copy; 2012</strong> <br>
-            A product by <a href="http://www.frandieguez.com">Fran Diéguez</a>
-        </div>
-        <div class="pull-right right">
-            <ul>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Terms of service</a></li>
-            </ul>
-        </div>
-    </footer>
 
     <script id="entry_hb" type="text/x-handlebars-template">
         {{#if show_search_form}}
@@ -144,6 +160,20 @@
             </li>
             {{/if}}
         </ul>
+    </script>
+
+    <script id="sidebar_hb" type="text/x-handlebars-template">
+        {{#articles}}
+        <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
+            <span class="title">{{title}}</span>
+        </a>
+        {{/articles}}
+
+        <div class="load_more">
+            {{#if next_page}}
+                <button class="load_more_button" href="#" data-page="{{next_page}}" data-search-string="{{search}}">Load more ...</button>
+            {{/if}}
+        </div>
     </script>
 
     <div id="help">
