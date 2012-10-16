@@ -14,17 +14,25 @@ $totalWords = count($words);
 $page   = array_key_exists('page', $_GET) ? $_GET['page'] : 1;
 $items  = array_key_exists('items', $_GET) ? $_GET['items'] : 10;
 $search = array_key_exists('search', $_GET) ? $_GET['search'] : '';
+$levenshteinSearch = array_key_exists('levenshtein', $_GET) ? true : false;
 $wordsSubset = array();
 
 $offset = ($page - 1) * $items;
 
 
 if (!empty($search)) {
-    $words = array_filter($words, function($item) {
-        global $search;
-        preg_match("/$search/", $item, $matches);
-        return count($matches) > 0;
-    });
+    if (!$levenshteinSearch) {
+        $words = array_filter($words, function($item) {
+            global $search;
+            return levenshtein($item, $search) < 3;
+        });
+    } else {
+        $words = array_filter($words, function($item) {
+            global $search;
+            preg_match("/$search/", $item, $matches);
+            return count($matches) > 0;
+        });
+    }
 }
 
 $result = array_slice($words, $offset, $items);

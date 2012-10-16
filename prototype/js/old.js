@@ -93,10 +93,11 @@ function loadWords(search_string, new_page) {
 
 function loadSuggestions(search_string, new_page) {
     $.ajax({
-        url: 'ws-levenshtein.php',
+        url: 'ws.php',
         data: {
             page: new_page,
-            search: 'aba'
+            search: 'aba',
+            levenshtein: 1
         },
         dataType: 'json',
         success: function(data) {
