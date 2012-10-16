@@ -9,7 +9,6 @@
  **/
 $words = file_get_contents(__DIR__.'/../data/words.gl.dat');
 $words = explode(PHP_EOL, $words);
-$totalWords = count($words);
 
 $page   = array_key_exists('page', $_GET) ? $_GET['page'] : 1;
 $items  = array_key_exists('items', $_GET) ? $_GET['items'] : 10;
@@ -18,17 +17,14 @@ $wordsSubset = array();
 
 $offset = ($page - 1) * $items;
 
-
 if (!empty($search)) {
     $words = array_filter($words, function($item) {
         global $search;
-        preg_match("/$search/", $item, $matches);
-        return count($matches) > 0;
+        return levenshtein($item, $search) < 3;
     });
 }
 
 $result = array_slice($words, $offset, $items);
-
 
 $i = 0;
 foreach ($result as $value) {
@@ -41,8 +37,8 @@ foreach ($result as $value) {
 }
 
 $finalResult = array(
-    'prev_page' => ($page-1 > 0) ? ($page-1) : null,
-    'next_page' => ($totalWords > ($items * ($page -1)) )? ($page+1) : null,
+    'next_page' => $page+1,
+    'prev_page' => $page-1,
     'words'     => $wordsSubset,
     'search'    => $search,
 );

@@ -142,8 +142,8 @@ body {
     display:none;
     margin:0 !important;
 }
-.list-item:hover .btn-toolbar,
-li.active .list-item .btn-toolbar
+/*li.active .list-item .btn-toolbar,*/
+.list-item:hover .btn-toolbar
 {
     display:block;
     max-height:10px;

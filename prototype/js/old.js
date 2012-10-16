@@ -78,10 +78,40 @@ function loadWords(search_string, new_page) {
                 'next_page' : data.next_page,
                 'prev_page' : data.prev_page,
                 'articles'  : data.words,
-                'search'    : search_string
+                'search'    : search_string,
+                'total_pages'     : data.total_pages,
+                'show_search_form' : true
             }
             var content = template(vars);
             $('#server').html(content);
+
+            pickFirstInTheList();
+        }
+    });
+    makeSelectable()
+}
+
+function loadSuggestions(search_string, new_page) {
+    $.ajax({
+        url: 'ws-levenshtein.php',
+        data: {
+            page: new_page,
+            search: 'aba'
+        },
+        dataType: 'json',
+        success: function(data) {
+            var source = $("#entry_hb").html();
+            var template = Handlebars.compile(source);
+
+            var vars = {
+                'next_page' : data.next_page,
+                'prev_page' : data.prev_page,
+                'articles'  : data.words,
+                'search'    : search_string,
+                'show_search_form' : false
+            }
+            var content = template(vars);
+            $('#suggestions').html(content);
 
             pickFirstInTheList();
         }
@@ -103,6 +133,7 @@ jQuery(document).ready(function($) {
         loadWords($('#search-word').val(), 1);
     })
     loadWords('', 1);
+    loadSuggestions('', 1);
 
     $('.tab-content').on('click', '.pager a', function() {
         loadWords($(this).data('search-string'), $(this).data('page'));
@@ -140,12 +171,12 @@ jQuery(document).ready(function($) {
         return false;
     });
     jQuery(document).bind('keydown', 'left',function (e){
-        var handler = selectable_container.find('.pager .previous a');
+        var handler = selectable_container.find('.pager:visible .previous a');
         handler.trigger('click');
         return false;
     });
     jQuery(document).bind('keydown', 'right',function (e){
-        var handler = selectable_container.find('.pager .next a');
+        var handler = selectable_container.find('.pager:visible .next a');
         handler.trigger('click');
         return false;
     });
@@ -184,6 +215,7 @@ jQuery(document).ready(function($) {
                 relations[key].push($(this).data('id'));
             });
         });
+        console.log(relations)
         return false;
     });
 

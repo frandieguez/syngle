@@ -108,36 +108,42 @@
     </footer>
 
     <script id="entry_hb" type="text/x-handlebars-template">
+        {{#if show_search_form}}
         <div class="input-append">
-          <form action="#" id="search-form">
-            <input class="span10" id="search-word" size="16" type="text" placeholder="Search for a word…" value="{{search}}">
-            <button id="search-submit" class="btn" type="submit">Search !</button>
-          </form>
+            <form action="#" id="search-form">
+                <input class="span10" id="search-word" size="16" type="text" placeholder="Search for a word…" value="{{search}}">
+                <button id="search-submit" class="btn" type="submit">Search !</button>
+            </form>
         </div>
-      <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
+        {{/if}}
+        <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
         {{#articles}}
-        <li>
-        <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
-            <span class="title">{{title}}</span>
-            <div class="btn-toolbar pull-right">
-              <div class="btn-group">
-                <span class="btn add-to-synonym btn-mini" rel="tooltip" data-original-title="Add as Synonym">S</span>
-                <span class="btn add-to-antonym btn-mini" rel="tooltip" data-original-title="Add as Antonym">A</span>
-                <span class="btn add-to-related btn-mini" rel="tooltip" data-original-title="Add as Related">R</span>
-              </div>
-            </div>
-        </a>
-        </li>
+            <li>
+                <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
+                    <span class="title">{{title}}</span>
+                    <div class="btn-toolbar pull-right">
+                      <div class="btn-group">
+                        <span class="btn add-to-synonym btn-mini" rel="tooltip" data-original-title="Add as Synonym">S</span>
+                        <span class="btn add-to-antonym btn-mini" rel="tooltip" data-original-title="Add as Antonym">A</span>
+                        <span class="btn add-to-related btn-mini" rel="tooltip" data-original-title="Add as Related">R</span>
+                      </div>
+                    </div>
+                </a>
+            </li>
         {{/articles}}
-      </ul>
-      <ul class="pager">
-        <li class="previous">
-          <a href="#" data-page="{{prev_page}}" data-search-string="{{search}}">&larr; Older</a>
-        </li>
-        <li class="next">
-          <a href="#" data-page="{{next_page}}" data-search-string="{{search}}">Newer &rarr;</a>
-        </li>
-      </ul>
+        </ul>
+        <ul class="pager">
+            {{#if prev_page}}
+            <li class="previous">
+                <a href="#" data-page="{{prev_page}}" data-search-string="{{search}}">&larr; Older</a>
+            </li>
+            {{/if}}
+            {{#if next_page}}
+            <li class="next">
+                <a href="#" data-page="{{next_page}}" data-search-string="{{search}}">Newer &rarr;</a>
+            </li>
+            {{/if}}
+        </ul>
     </script>
 
     <div id="help">
