@@ -1,0 +1,11 @@
+{{#articles}}
+<a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
+    <span class="title">{{title}}</span>
+</a>
+{{/articles}}
+
+<div class="load_more">
+    {{#if next_page}}
+        <button class="load_more_button" href="#" data-page="{{next_page}}" data-search-string="{{search}}">Load more ...</button>
+    {{/if}}
+</div>

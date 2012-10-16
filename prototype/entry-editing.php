@@ -43,10 +43,19 @@
     <div class="container-fluid">
        <div class="row-fluid">
             <div class="span2" id="sidebar">
-                <!--Sidebar content-->
-                <div class="word-list">
-                    <div class="load_more">
-                        <div class="loading">Loading</div>
+                <div>
+                    <!--Sidebar content-->
+                    <div class="sidebar-header">
+                        <label for="sidebar_filter_state">Filter</label>
+                        <select name="state" id="sidebar_filter_state">
+                            <option value="uncompleted">Uncompleted</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="word-list">
+                        <div class="load_more">
+                            <div class="loading">Loading</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,21 +76,21 @@
 
                 <div class="row-fluid clearfix">
                     <div class="span6 receiver">
-                        <h4>Synonyms</h4>
+                        <h5>Synonyms</h5>
                         <div class="synonyms clearfix">
                             <ul>
                                 <li></li>
                             </ul>
                         </div>
 
-                        <h4>Antonyms</h4>
+                        <h5>Antonyms</h5>
                         <div class="antonyms clearfix">
                             <ul>
                                 <li></li>
                             </ul>
                         </div>
 
-                        <h4>Related</h4>
+                        <h5>Related</h5>
                         <div class="related clearfix">
                             <ul>
                                 <li></li>
@@ -120,61 +129,6 @@
 
         </div>
     </div>
-
-
-
-    <script id="entry_hb" type="text/x-handlebars-template">
-        {{#if show_search_form}}
-        <div class="input-append">
-            <form action="#" id="search-form">
-                <input class="span10" id="search-word" size="16" type="text" placeholder="Search for a word…" value="{{search}}">
-                <button id="search-submit" class="btn" type="submit">Search !</button>
-            </form>
-        </div>
-        {{/if}}
-        <ul class="nav nav-list bs-docs-sidenav" data-cursor-selectable>
-        {{#articles}}
-            <li>
-                <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
-                    <span class="title">{{title}}</span>
-                    <div class="btn-toolbar pull-right">
-                      <div class="btn-group">
-                        <span class="btn add-to-synonym btn-mini" rel="tooltip" data-original-title="Add as Synonym">S</span>
-                        <span class="btn add-to-antonym btn-mini" rel="tooltip" data-original-title="Add as Antonym">A</span>
-                        <span class="btn add-to-related btn-mini" rel="tooltip" data-original-title="Add as Related">R</span>
-                      </div>
-                    </div>
-                </a>
-            </li>
-        {{/articles}}
-        </ul>
-        <ul class="pager">
-            {{#if prev_page}}
-            <li class="previous">
-                <a href="#" data-page="{{prev_page}}" data-search-string="{{search}}">&larr; Older</a>
-            </li>
-            {{/if}}
-            {{#if next_page}}
-            <li class="next">
-                <a href="#" data-page="{{next_page}}" data-search-string="{{search}}">Newer &rarr;</a>
-            </li>
-            {{/if}}
-        </ul>
-    </script>
-
-    <script id="sidebar_hb" type="text/x-handlebars-template">
-        {{#articles}}
-        <a class="list-item clearfix" href="#elem-{{title}}" data-id="{{title}}" data-title="{{title}}">
-            <span class="title">{{title}}</span>
-        </a>
-        {{/articles}}
-
-        <div class="load_more">
-            {{#if next_page}}
-                <button class="load_more_button" href="#" data-page="{{next_page}}" data-search-string="{{search}}">Load more ...</button>
-            {{/if}}
-        </div>
-    </script>
 
     <div id="help">
         <div>
