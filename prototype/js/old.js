@@ -51,13 +51,13 @@ function moveWordTo(container, position) {
     };
 }
 
-function makeSelectable() {
+function makeCursorSelectable() {
     selectable_container.on('click', '[data-cursor-selectable] > *', function() {
+        var target = $(this);
         $(this).siblings().each(function() {
             $(this).removeClass('active');
         })
-        var target = $(this);
-        target.toggleClass('active');
+        target.addClass('active');
         return false;
     });
 }
@@ -88,7 +88,7 @@ function loadWords(search_string, new_page) {
             pickFirstInTheList();
         }
     });
-    makeSelectable()
+    makeCursorSelectable()
 }
 
 function loadSuggestions(search_string, new_page) {
@@ -116,7 +116,7 @@ function loadSuggestions(search_string, new_page) {
             pickFirstInTheList();
         }
     });
-    makeSelectable()
+    makeCursorSelectable()
 }
 
 function pickFirstInTheList() {
