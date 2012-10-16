@@ -14,14 +14,15 @@ $totalWords = count($words);
 $page   = array_key_exists('page', $_GET) ? $_GET['page'] : 1;
 $items  = array_key_exists('items', $_GET) ? $_GET['items'] : 10;
 $search = array_key_exists('search', $_GET) ? $_GET['search'] : '';
-$levenshteinSearch = array_key_exists('levenshtein', $_GET) ? true : false;
+$levenshteinSearch = (array_key_exists('levenshtein', $_GET) && $_GET['levenshtein'] == 1) ? true : false;
+
 $wordsSubset = array();
 
 $offset = ($page - 1) * $items;
 
 
 if (!empty($search)) {
-    if (!$levenshteinSearch) {
+    if ($levenshteinSearch) {
         $words = array_filter($words, function($item) {
             global $search;
             return levenshtein($item, $search) < 3;
@@ -40,10 +41,16 @@ $result = array_slice($words, $offset, $items);
 
 $i = 0;
 foreach ($result as $value) {
-    $object = new stdClass();
     $value = iconv('ISO-8859-1', 'UTF-8', $value);
+    $split = explode('|', $value);
+
+    $object = new stdClass();
     $object->id = $offset+1+$i;
-    $object->title = $value;
+    $object->title = trim($split[0]);
+    if (array_key_exists(1, $split)) {
+        $object->category = trim($split[1]);
+    }
+
     $wordsSubset[] = $object;
     $i++;
 }

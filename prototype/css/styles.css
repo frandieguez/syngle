@@ -51,6 +51,10 @@ body {
 .bs-docs-sidenav > li > a:hover {
   background-color: #f5f5f5;
 }
+.bs-docs-sidenav > li > a .category {
+  color:Gray;
+  font-size:.8em;
+}
 
 .receiver > div {
   background-color: #fff;
